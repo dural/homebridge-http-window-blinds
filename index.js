@@ -95,7 +95,6 @@ HttpWindowBlindsPattern.prototype = {
 					if (value < this.minOpen || value > this.maxOpen || isNaN(value)) {
 						throw "Invalid value received";
 					}
-					this.log('HTTP successful response: ' + body);
 					this.currentPosition = value;
 					this.service.setCharacteristic(Characteristic.CurrentPosition, this.currentPosition);
 					this.service.setCharacteristic(Characteristic.PositionState, Characteristic.PositionState.STOPPED);
@@ -110,12 +109,14 @@ HttpWindowBlindsPattern.prototype = {
 		});
 	},
 	getTargetPosition: function (callback) {
-		this.log("getTargetPosition :", this.targetPosition);
+		// this.log("getTargetPosition :", this.targetPosition);
 		this.service.setCharacteristic(Characteristic.PositionState, Characteristic.PositionState.STOPPED);
 		callback(null, this.targetPosition);
 	},
 	setTargetPosition: function (value, callback) {
-		this.log("setTargetPosition from %s to %s", this.targetPosition, value);
+		if (self.debug) {
+			this.log("setTargetPosition from %s to %s", this.targetPosition, value);
+		}
 		this.targetPosition = value;
 
 		if (this.targetPosition > this.currentPosition) {
@@ -130,12 +131,14 @@ HttpWindowBlindsPattern.prototype = {
 			this.currentPosition = this.targetPosition;
 			this.service.setCharacteristic(Characteristic.CurrentPosition, this.currentPosition);
 			this.service.setCharacteristic(Characteristic.PositionState, Characteristic.PositionState.STOPPED);
-			this.log("currentPosition is now %s", this.currentPosition);
+			if (self.debug) {
+				this.log("currentPosition is now %s", this.currentPosition);
+			}
 			callback(null);
 		});
 	},
 	getPositionState: function (callback) {
-		this.log("getPositionState :", this.positionState);
+		// this.log("getPositionState :", this.positionState);
 		callback(null, this.positionState);
 	},
 	getServices: function () {
