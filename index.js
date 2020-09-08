@@ -114,7 +114,7 @@ HttpWindowBlindsPattern.prototype = {
 		callback(null, this.targetPosition);
 	},
 	setTargetPosition: function (value, callback) {
-		if (self.debug) {
+		if (this.debug) {
 			this.log("setTargetPosition from %s to %s", this.targetPosition, value);
 		}
 		this.targetPosition = value;
@@ -131,7 +131,7 @@ HttpWindowBlindsPattern.prototype = {
 			this.currentPosition = this.targetPosition;
 			this.service.setCharacteristic(Characteristic.CurrentPosition, this.currentPosition);
 			this.service.setCharacteristic(Characteristic.PositionState, Characteristic.PositionState.STOPPED);
-			if (self.debug) {
+			if (this.debug) {
 				this.log("currentPosition is now %s", this.currentPosition);
 			}
 			callback(null);
