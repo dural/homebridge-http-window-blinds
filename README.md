@@ -1,6 +1,8 @@
 # Homebridge HTTP Window Blinds
 
-Repository forked from [homebridge-http-switch](https://github.com/Supereg/homebridge-http-switch) to enable the use of regex expressions with the response from the window blind status endpoint.
+NOTE: Repository forked from [homebridge-http-window-blinds](https://github.com/crashtestoz/homebridge-http-window-blinds) to enable the use of regex expressions with the response from the window blind status endpoint.
+
+***
 
 This is based on an Archived module by @jeffreylanters
 A simple [Homebridge](https://github.com/nfarina/homebridge) plugin for controlling window blinds over HTTP. This required a DIY device to move the windows blinds cord.
