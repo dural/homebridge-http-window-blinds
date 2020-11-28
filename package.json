@@ -1,5 +1,5 @@
 {
-    "name": "homebridge-http-window-blinds",
+    "name": "homebridge-http-window-blinds-custom",
     "version": "1.0.0",
     "description": "Homebridge Plugin for controlling window blinds over HTTP using RegExp patterns",
     "main": "index.js",
