@@ -96,6 +96,9 @@ HttpWindowBlindsPattern.prototype = {
 						throw "Invalid value received";
 					}
 					this.currentPosition = value;
+					if (this.debug) {
+						this.log("getTargetPosition is %s", this.currentPosition);
+					}
 					this.service.setCharacteristic(Characteristic.CurrentPosition, this.currentPosition);
 					this.service.setCharacteristic(Characteristic.PositionState, Characteristic.PositionState.STOPPED);
 
@@ -145,7 +148,7 @@ HttpWindowBlindsPattern.prototype = {
 		var informationService = new Service.AccessoryInformation();
 
 		informationService
-			.setCharacteristic(Characteristic.Manufacturer, "Peter Chodyra & Carlos Frutos")
+			.setCharacteristic(Characteristic.Manufacturer, "dural")
 			.setCharacteristic(Characteristic.Model, "HTTP Window Blinds")
 			.setCharacteristic(Characteristic.SerialNumber, "HWB02");
 
